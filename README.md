@@ -13,7 +13,7 @@ el número del darrer fitxer, i finalment la quarta el nom del fitxer resultant.
 |---------|--------------|-----------|---------|
 | 680     |       4      |      10   |    1    |
 
-### Exemple
+### Exemple de fitxer
 ```
 110,1,4,1
 234,2,3,2
@@ -59,6 +59,15 @@ python ajunta-pdf.py --prefix sortida/exemple_ dades.csv
 **Windows**
 ```
 python ajunta-pdf.py --prefix sortida\exemple_ dades.csv
+```
+
+# Exemple d'ús del programa
+
+Al directori `test` hi trobareu un fitxer i una estructura de directories d'exemple
+per a aquesta aplicació. Canvieu de directori i executeu el programa:
+```
+> cd test
+> python ../ajunta-pdf.py dades.csv
 ```
 
 # Instal·lació
