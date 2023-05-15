@@ -30,12 +30,12 @@ python ajunta-pdf.py dades.csv
 
 ## Mode de prova
 
-Es pot executar el fitxer en mode de prova indicant `--dry-mode` a la línia d'ordres.
+Es pot executar el fitxer en mode de prova indicant `--dry-run` a la línia d'ordres.
 Això vol dir que **no s'escriurà cap fitxer PDF**, simplement s'indicaran quins fitxers
 es crearien, d'acord amb les dades proporcionades, i quins fitxers es farien servir per
 crear-los.
 ```
-python ajunta-pdf.py --dry-mode dades.csv
+python ajunta-pdf.py --dry-run dades.csv
 ```
 
 ## Prefix
