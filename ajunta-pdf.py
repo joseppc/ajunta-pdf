@@ -1,13 +1,10 @@
 import argparse
 import csv
-import logging
 import os
 import glob
 from pypdf import PdfMerger
 
-FILE_NAME = 'dades.csv'
 ROW_FIELDS = ('folder', 'begin', 'end', 'name')
-args = None
 
 class PdfConcatenator:
     def __init__(self, folder:str, begin:int, end:int, name:str, prefix_out:str=''):
@@ -39,7 +36,7 @@ class PdfConcatDryRunner(PdfConcatenator):
         if self.missing:
             print("ERROR: Manquen PDFs per crear el fitxer {self.name}:")
         else:
-            print(f"\nCreant el fitxer {self.name} amb aquests PDF:")
+            print(f"\nEs crearia el fitxer {self.name} amb aquests PDF:")
         for f in self.input_files:
             print(f'\t{f}')
         print()
@@ -84,15 +81,16 @@ def check_row(data: dict) -> bool:
         except ValueError:
             print("El camp d'inici o final no són nombres")
             valid = False
-        if valid and (begin >= end):
+        else:
+            data['begin'] = begin
+            data['end'] = end
+
+        if valid and (begin > end):
             print('El número de PDF inicial ({}) és més gran que el final ({})'.format(data['begin'], data['end']))
             valid = False
-        elif (begin <= 0) or (end <= 0):
+        elif valid and ((begin <= 0) or (end <= 0)):
             print('El número de PDF inicial ({}) o el final ({}) són negatius o zero'.format(data['begin'], data['end']))
             valid = False
-
-        data['begin'] = begin
-        data['end'] = end
 
     if data['name'] is None:
         print('Manca el nom del fitxer de destí')
