@@ -119,7 +119,7 @@ def read_file(cvs_file, dry_run: bool, prefix: str):
 
 # Define arguments
 parser = argparse.ArgumentParser(description='Ajunta PDF')
-parser.add_argument('cvs_file', help='Fixer en format CVS', metavar='Fixer', type=argparse.FileType('r', encoding='UTF-8'))
+parser.add_argument('cvs_file', help='Fitxer en format CVS', metavar='Fitxer', type=argparse.FileType('r', encoding='UTF-8'))
 parser.add_argument('--dry-run', help='No crea cap fitxer. Només indica quines accions es durien a terme', action='store_true')
 parser.add_argument('--prefix', help='Afegeix aquest prefix a cada fitxer', default='')
 
